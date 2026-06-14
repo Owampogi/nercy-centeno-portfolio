@@ -362,129 +362,169 @@ export const siteData = {
   aiAssistant: {
     knowledgeBase: [
       {
-        topic: "who is joshua",
+        topic: "who is joshua about bio introduction",
         response:
-          "Nercy Joshua B. Centeno is an AI Automation Specialist and Client Success professional based in Malolos City, Bulacan, Philippines. He has over five years of professional experience across healthcare, gaming/Web3, and client operations, with nearly three years focused specifically on AI automation and n8n workflow design. He helps businesses automate workflows, improve customer operations, and create scalable systems using AI and automation.",
+          "Nercy Joshua B. Centeno is an AI Automation Specialist and Client Success professional based in Malolos City, Bulacan, Philippines (UTC+8). He has over five years of professional experience across healthcare, gaming/Web3, and client operations, with nearly three years focused specifically on AI automation and n8n workflow design. He helps businesses automate workflows, improve customer operations, and create scalable systems using AI and automation. His full name is Nercy Joshua B. Centeno — he goes by Joshua or Josh. You can reach him at nercy.centeno.freelancer@gmail.com or connect on LinkedIn at linkedin.com/in/nercy-joshua-centeno.",
       },
       {
-        topic: "name full name",
+        topic: "what does joshua do work services",
         response:
-          "His full name is Nercy Joshua B. Centeno. He goes by Joshua or Josh professionally.",
+          "Joshua works in AI automation, workflow automation, chatbot development, process improvement, knowledge management, and business operations. He offers: n8n automation workflow design and implementation, AI integration (OpenAI, Anthropic, Google Gemini), API integrations and webhooks, multi-agent AI system architecture, client onboarding systems, knowledge base management, documentation and SOP creation, business process analysis, Slack and team automation, Retell AI voice agent integration, content automation, and proposal generation systems. He is available for both freelance projects and full-time opportunities.",
       },
       {
-        topic: "location where based timezone",
+        topic: "n8n make zapier tools automation platform",
         response:
-          "Joshua is based in Malolos City, Bulacan, Philippines (UTC+8 timezone). He works remotely with clients worldwide.",
+          "Joshua's primary tool is n8n, where he has nearly three years of experience designing and deploying scalable automation workflows. He also understands automation principles across platforms and can evaluate whether n8n, Make.com, or another solution best fits a project's requirements. His tech stack also includes OpenAI, Anthropic, Google Gemini (AI/LLM integrations), Zapier, Make.com, Google Sheets, Google Docs, Slack API, Retell AI, Mermaid.js, Blotato, Telegram, REST APIs, webhooks, JSON manipulation, Google Workspace, Microsoft 365, and database management.",
       },
       {
-        topic: "contact email reach",
+        topic: "chatbot build website ai assistant",
         response:
-          "You can reach Joshua at nercy.centeno.freelancer@gmail.com or connect with him on LinkedIn at linkedin.com/in/nercy-joshua-centeno. You can also book a free 30-minute discovery call through his Calendly link available on the website.",
+          "Yes, Joshua builds AI-powered chatbots and assistants. His flagship project is the Enterprise Multi-Agent AI Assistant — a system that classifies user requests, delegates tasks to specialized AI agents, retrieves business data from knowledge bases, executes operational workflows, and generates contextual responses through a single conversational interface. It uses 8 modules including Intent Classification, Multi-Agent Routing, Knowledge Base Retrieval, Context-Aware Memory, and Response Generation. He has also built Slack acknowledgement bots and customer support chatbots.",
       },
       {
-        topic: "automation projects",
+        topic: "crm integrate api connect existing",
         response:
-          "Joshua has built several key automation projects: 1) Enterprise Multi-Agent AI Assistant — a sophisticated multi-agent chatbot that classifies requests, delegates to specialized AI agents, retrieves business data, and executes workflows. 2) Upwork AI Proposal Builder Suite — a multi-agent AI proposal generation platform with 6 integrated modules including a Boss AI Agent, Application Copy Generator, Google Docs Generator, Job Scraper, and Mermaid Diagram Generator. 3) AI Voice Call Analysis & Lead Processing — integrates with Retell AI voice agents for automated post-call processing. 4) AI Acknowledgement & Smart Reply Bot — an AI-powered Slack response system that classifies intent and generates context-aware replies. 5) AI Database & Community Management at Mirai Labs — managed a 20,000+ player community and trained AI agents for Level-1 ticket resolution.",
+          "If your CRM supports APIs, webhooks, or integrations, Joshua can typically evaluate whether it can be connected to an automation workflow. He has experience connecting automation workflows with third-party systems through APIs, webhooks, databases, spreadsheets, and cloud platforms. Many of his projects involve connecting multiple software platforms together into unified automated workflows.",
       },
       {
-        topic: "enterprise multi-agent chatbot",
+        topic: "projects portfolio work examples",
         response:
-          "The Enterprise Multi-Agent AI Assistant is Joshua's flagship project. It classifies user requests, delegates tasks to specialized AI agents, retrieves business data from knowledge bases, executes operational workflows, and generates contextual responses across multiple business functions through a single conversational interface. It uses 8 modules: Intent Classification Engine, Multi-Agent Router, Knowledge Base Retriever, Workflow Execution Engine, Context-Aware Memory, Email & Notification Handler, Business Data Integration, and Response Generator. Built using n8n, OpenAI, Google Sheets, Gmail API, and Knowledge Base systems.",
+          "Joshua has built 5 featured projects: 1) Enterprise Multi-Agent AI Assistant — multi-agent chatbot with 8 modules for business operations. 2) Upwork AI Proposal Builder Suite — 6-module system automating proposal creation from job discovery to client-ready documents. 3) AI Voice Call Analysis & Lead Processing — Retell AI integration for automated post-call processing with Slack notifications. 4) AI Acknowledgement & Smart Reply Bot — intelligent Slack response system with intent classification and context-aware replies. 5) AI Database & Community Management at Mirai Labs — managed 20,000+ player community and trained AI agents for Level-1 ticket resolution.",
       },
       {
-        topic: "upwork proposal builder",
+        topic: "proposal builder upwork freelancer",
         response:
-          "The Upwork AI Proposal Builder Suite is a multi-agent AI proposal generation platform that automates the end-to-end process of creating Upwork proposals. It has 6 integrated modules: Boss AI Agent (central orchestrator), Application Copy Generator (personalized cover letters), Job Scraper & Analyzer (automated job discovery and qualification), Google Docs Generator (professional proposal documents), Mermaid Diagram Generator (workflow visualizations), and a Data Pipeline. Built using n8n, OpenAI, Google Docs API, Google Drive API, Google Sheets API, Mermaid.js, and Web Scraping.",
+          "The Upwork AI Proposal Builder Suite automates the end-to-end process of creating proposals. It has 6 modules: Boss AI Agent (central orchestrator with memory-enabled context), Application Copy Generator (personalized cover letters), Job Scraper & Analyzer (automated job discovery and qualification), Google Docs Generator (professional proposal documents), Mermaid Diagram Generator (workflow visualizations), and a Data Pipeline. Built using n8n, OpenAI, Google Docs API, Google Drive API, Google Sheets API, Mermaid.js, and Web Scraping.",
       },
       {
-        topic: "voice call center retell",
+        topic: "voice call center retell phone",
         response:
-          "Joshua built an AI Voice Call Analysis & Lead Processing system that integrates with Retell AI voice agents. The workflow receives conversation analysis data via webhook, validates and normalizes call results, stores structured records in Google Sheets, sends real-time Slack notifications to internal teams, and returns status responses back to the voice platform. It has 5 modules: Retell AI Webhook, Data Processor, Google Sheets Logger, Slack Notifier, and Status Responder.",
+          "Joshua built an AI Voice Call Analysis & Lead Processing system that integrates with Retell AI voice agents. It receives conversation analysis via webhook, validates and normalizes call results, stores records in Google Sheets, sends real-time Slack notifications, and returns status responses. Modules: Retell AI Webhook, Data Processor, Google Sheets Logger, Slack Notifier, and Status Responder.",
       },
       {
-        topic: "slack bot acknowledgement reply",
+        topic: "slack bot reply message notification",
         response:
-          "The AI Acknowledgement & Smart Reply Bot automatically handles incoming messages by classifying intent, generating context-aware replies using OpenAI, logging interactions in Google Sheets, and delivering personalized responses through the connected messaging platform. It has 6 modules: Message Receiver, Intent Classifier, AI Response Generator, Conditional Logic Router, Interaction Logger, and Response Delivery. Built using Slack, n8n, OpenAI, Conditional Logic, Google Sheets, and Messaging APIs.",
+          "The AI Acknowledgement & Smart Reply Bot automatically handles incoming messages by classifying intent, generating context-aware replies using OpenAI, logging interactions in Google Sheets, and delivering personalized responses. Modules: Message Receiver, Intent Classifier, AI Response Generator, Conditional Logic Router, Interaction Logger, and Response Delivery. Built using Slack, n8n, OpenAI, Google Sheets, and Messaging APIs.",
       },
       {
-        topic: "mirai labs community",
+        topic: "why hire different unique value worth",
         response:
-          "At Mirai Labs, Joshua served as Customer Service Representative & AI Database Manager (March 2024 — October 2025). He managed a community of 20,000+ players, resolved complex technical issues, and trained AI agents to automate Level-1 ticket resolution — clearing 70% of routine inquiries. He also audited and updated the AI knowledge base database for automated responses, moderated community forums, and led discussions on Web3 topics.",
+          "Joshua approaches automation from both a technical and operational perspective. Instead of only building workflows, he studies the entire business process, identifies bottlenecks, and designs systems that reduce manual work while remaining easy to maintain. With over 5 years across healthcare, gaming/Web3, and consulting, he bridges business needs and technical implementations — reducing manual effort by up to 70%, automating 70% of routine support inquiries, and building enterprise-level multi-agent AI systems. Verified testimonials praise his reliability, professionalism, and growth mindset.",
       },
       {
-        topic: "industries supported",
+        topic: "how work process step plan",
         response:
-          "Joshua has supported businesses across multiple industries: Gaming/Web3 (Mirai Labs — managed 20,000+ player community), Healthcare (Innovative System Group Global — patient scheduling and account management), and various SMEs through his freelance automation practice. His experience spans e-commerce, gaming, healthcare, and tech startups.",
+          "Joshua follows a 4-step process: 1) Discovery Call — discuss business challenges, goals, and current workflows. 2) Strategy & Planning — analyze processes, identify automation opportunities, design a solution blueprint. 3) Implementation — build and deploy automation workflows, integrate AI tools, ensure seamless integration. 4) Training & Support — provide documentation, SOPs, and hands-on training so your team can manage the systems confidently.",
       },
       {
-        topic: "tools technologies stack",
+        topic: "rate pricing cost budget affordable charge fee",
         response:
-          "Joshua's tech stack includes: n8n (primary workflow automation), OpenAI, Anthropic, and Google Gemini (AI/LLM integrations), Zapier and Make.com (alternative automation platforms), Google Sheets and Google Docs (data management and document automation), Slack API (team automation), Retell AI (voice agent integration), Mermaid.js (workflow visualization), Blotato (social media automation), and Telegram (notifications). He's also proficient with REST APIs, webhooks, JSON manipulation, Google Workspace, Microsoft 365, database management, and structured output parsing.",
+          "Joshua's baseline rate is $15 USD per hour, but this is negotiable depending on the project scope, duration, and complexity. He is open to discussing fixed-price arrangements for well-defined projects. Not every solution requires a large investment — he can often recommend phased implementations, quick wins, or lightweight automation strategies that deliver value without requiring a large budget. Reach out via the contact form or book a discovery call to discuss your specific needs.",
       },
       {
-        topic: "skills technical",
+        topic: "available schedule full-time freelance start",
         response:
-          "Joshua's core skills include: AI Automation & Workflow Design, Client Success & Relationship Management, Project Coordination & Operations, AI & LLM Integrations, Customer Support & Community Management, Business Process Analysis, API Integrations & Webhooks, Database & Knowledge Base Management, Documentation & SOPs, and No-Code/Low-Code Tools (n8n, Zapier, Make.com).",
+          "Joshua is available for both freelance projects and full-time opportunities. He is currently operating as an independent automation specialist. For high-priority projects, he will provide realistic timelines and determine whether an accelerated delivery schedule is possible. You can book a free 30-minute discovery call through the Calendly link on this website.",
       },
       {
-        topic: "why hire joshua",
+        topic: "industry healthcare gaming startup web3",
         response:
-          "Joshua brings a unique combination of client success experience and technical automation expertise. With over 5 years of professional experience across healthcare, gaming/Web3, and freelance consulting, he bridges the gap between business needs and technical implementations. He has reduced manual effort by up to 70% for clients, automated 70% of routine support inquiries, and built enterprise-level multi-agent AI systems. He is reliable, professional, leadership-oriented, business-focused, and results-driven.",
+          "Joshua has supported businesses across multiple industries: Gaming/Web3 (Mirai Labs — managed 20,000+ player community, led Web3 discussions), Healthcare (Innovative System Group Global — patient scheduling, reduced no-show rates by 15%), and various startups and SMEs through his freelance practice. His experience spans e-commerce, gaming, healthcare, SaaS, and tech startups.",
       },
       {
-        topic: "career background experience history",
+        topic: "career background experience history timeline",
         response:
-          "Joshua's career progression: 1) Engine Cadet at Atlantic Bulk Carriers Management LTD (2018-2020) — assisted in maintenance and monitoring of ship systems. 2) Customer Service Representative / Account Specialist (Healthcare) at Innovative System Group Global (2021-2024) — managed patient scheduling for multiple providers, reduced no-show rates by 15%. 3) Customer Service Representative & AI Database Manager at Mirai Labs (2024-2025) — managed 20,000+ player community, trained AI agents. 4) Automations Specialist (n8n Operator) as Individual Contractor (2025-Present) — designs and deploys scalable automation workflows.",
+          "Joshua's career progression: 1) Engine Cadet at Atlantic Bulk Carriers (2018-2020) — built disciplined technical problem-solving foundation. 2) Customer Service Rep / Account Specialist in Healthcare at Innovative System Group Global (2021-2024) — managed patient scheduling for multiple providers, reduced no-show rates by 15%. 3) Customer Service Rep & AI Database Manager at Mirai Labs (2024-2025) — managed 20,000+ player community, trained AI agents for 70% Level-1 automation. 4) Automations Specialist (n8n Operator) as Individual Contractor (2025-Present) — designs and deploys scalable automation workflows.",
       },
       {
-        topic: "services offered freelance",
+        topic: "skills technical core expertise",
         response:
-          "Joshua offers: n8n automation workflow design and implementation, AI integration (OpenAI, Anthropic, Google Gemini), API integrations and webhooks, multi-agent AI system architecture, client onboarding systems, knowledge base management, documentation and SOP creation, business process analysis, Slack and team automation, Retell AI voice agent integration, social media content automation, and proposal generation systems. He is available for both freelance projects and full-time opportunities.",
+          "Joshua's core skills: AI Automation & Workflow Design, Client Success & Relationship Management, Project Coordination & Operations, AI & LLM Integrations (OpenAI, Anthropic, Google Gemini), Customer Support & Community Management, Business Process Analysis, API Integrations & Webhooks, Database & Knowledge Base Management, Documentation & SOPs, and No-Code/Low-Code Tools (n8n, Zapier, Make.com).",
       },
       {
-        topic: "education degree university",
+        topic: "education degree university marine",
         response:
           "Joshua holds a Bachelor of Science in Marine Engineering from Our Lady of Fatima University in Valenzuela City, Philippines (2013-2017). His engineering background gives him a disciplined, systematic approach to technical problem-solving and process design.",
       },
       {
-        topic: "community involvement volunteer",
+        topic: "community volunteer involvement leadership",
         response:
           "Joshua served as Vice President of Bulacan Salinlahi Inc. (2015-2016), organizing cultural awareness seminars and events. He has been a member of Dularawan Bulacan Foundation Inc. since 2012, participating in community arts promotion.",
       },
       {
-        topic: "rate pricing cost hourly",
+        topic: "testimonial reference recommendation review feedback",
         response:
-          "Joshua's baseline rate is $15 USD per hour, but this is negotiable depending on the project scope, duration, and complexity. He is open to discussing fixed-price arrangements for well-defined projects. Feel free to reach out via the contact form or book a discovery call to discuss your specific needs and budget.",
+          "Joshua has received verified recommendations. Airee David (People Operations) describes him as respectful, reliable, and driven by purpose. Daisy Bayani (CSO, Community & Product Strategy) notes he is consistent, thoughtful, calm under pressure. Jingjing (Founder, Superbench AI) highlights his exceptional learning agility and work ethic. Kai (CTO & Co-Founder, Superbench AI) praises his adaptability, growth mindset, and focus on workflow optimization. All testimonials are verified and available on the website.",
       },
       {
-        topic: "availability schedule full-time freelance",
+        topic: "communication progress update transparent",
         response:
-          "Joshua is available for both freelance projects and full-time opportunities. He is currently operating as an independent automation specialist. You can book a free 30-minute discovery call through the Calendly link on his website to discuss your project needs.",
+          "Joshua prioritizes clear communication, collaborative problem-solving, and keeping stakeholders informed throughout the project lifecycle. He creates documentation and guides for non-technical audiences, and works well with both technical and non-technical teams. His verified testimonials specifically praise his communication and reliability.",
       },
       {
-        topic: "testimonials references recommendations",
+        topic: "training support after delivery maintenance break",
         response:
-          "Joshua has received verified recommendations from colleagues and leaders. Airee David (People Operations & Leadership Development) describes him as respectful, reliable, and driven by purpose with genuine care for the people he serves. Daisy Bayani (CSO, Community & Product Strategy) notes he is consistent, thoughtful, calm under pressure, and hardworking. Jingjing (Founder, Superbench AI) highlights his exceptional learning agility and strong work ethic. Kai (CTO & Co-Founder, Superbench AI) praises his adaptability, growth mindset, and focus on workflow optimization.",
+          "Joshua designs systems with reliability and maintainability in mind. He provides documentation, SOPs, monitoring recommendations, and troubleshooting guidance. If needed, he walks teams through workflows, explains how systems operate, and helps team members become comfortable managing the automation. He also offers ongoing support options for projects that need continued maintenance.",
       },
       {
-        topic: "how work process",
+        topic: "non-technical team explain simple beginner start",
         response:
-          "Joshua follows a simple 4-step process: 1) Discovery Call — discuss your business challenges, goals, and current workflows. 2) Strategy & Planning — analyze processes, identify automation opportunities, and design a solution blueprint. 3) Implementation — build and deploy automation workflows, integrate AI tools, and ensure seamless integration with existing systems. 4) Training & Support — provide documentation, SOPs, and hands-on training so your team can manage the systems confidently.",
+          "Joshua regularly works with non-technical stakeholders. Many of his clients are small teams with no technical people. He explains concepts, workflows, and decisions in plain language, and creates documentation intended for non-technical audiences. If you don't know where to start with automation, he can help identify opportunities, map processes, prioritize quick wins, and create a roadmap aligned with your budget and goals.",
       },
       {
-        topic: "healthcare experience",
+        topic: "broken fix troubleshoot existing workflow",
         response:
-          "At Innovative System Group Global (2021-2024), Joshua served as a Customer Service Representative and Account Specialist in Healthcare. He managed end-to-end patient scheduling and registration for multiple providers, reducing no-show rates by 15% through personalized SMS and email confirmations. He served as the primary point of contact for healthcare clients, gathering requirements and coordinating appointments, and facilitated collaboration between departments to optimize communication.",
+          "Yes, Joshua has experience troubleshooting workflows, identifying bottlenecks, improving reliability, handling edge cases, and optimizing automation systems that have become difficult to maintain. If your n8n automation keeps breaking or your existing systems need improvement, he can evaluate the current setup and provide solutions.",
       },
       {
-        topic: "marine engineering background",
+        topic: "urgent fast quick turnaround time",
         response:
-          "Joshua started his career as an Engine Cadet at Atlantic Bulk Carriers Management LTD (2018-2020), where he assisted in the maintenance and monitoring of ship systems. This experience built a foundation of disciplined technical problem-solving, systematic troubleshooting, and process adherence that he now applies to automation design.",
+          "Availability varies depending on current commitments. The best approach is to reach out with your requirements. For high-priority projects, Joshua will provide realistic timelines and determine whether an accelerated delivery schedule is possible. You can contact him directly via email at nercy.centeno.freelancer@gmail.com or book a discovery call through Calendly.",
       },
       {
-        topic: "n8n expertise",
+        topic: "timezone remote async collaborate",
         response:
-          "n8n is Joshua's primary workflow automation tool. He has nearly three years of experience designing and deploying scalable automation workflows using n8n, connecting multiple services to streamline client business processes. He implements JSON manipulation, conditional logic, and API integrations to solve complex client requirements. He has built multi-agent systems, content automation pipelines, voice call processors, and intelligent reply bots all using n8n as the orchestration layer.",
+          "Joshua is based in the Philippines (UTC+8) and has experience collaborating with distributed teams across different time zones. He can work asynchronously and is comfortable with documentation-driven, async-first communication. Project communication and meeting schedules can be coordinated based on mutual availability.",
+      },
+      {
+        topic: "multiple projects simultaneously at once",
+        response:
+          "Yes, Joshua is experienced in managing multiple initiatives simultaneously while maintaining structured workflows, documentation, and communication practices. He can work independently on projects or collaborate closely with founders, operations teams, marketing teams, and technical stakeholders.",
+      },
+      {
+        topic: "knowledge base documentation faq organize",
+        response:
+          "Knowledge management is one of Joshua's strongest areas of experience. He has extensive experience organizing, optimizing, and maintaining knowledge bases designed for AI retrieval, creating documentation and SOPs, restructuring FAQ content for clarity, and building AI-friendly documentation optimized for retrieval-based systems.",
+      },
+      {
+        topic: "content automation generate pipeline",
+        response:
+          "Joshua has worked on AI-assisted content generation and automation systems. He can automate content workflows, create AI-generated content pipelines, and build structured content operations. His experience includes content creation, content organization, content automation, and optimizing content for AI retrieval.",
+      },
+      {
+        topic: "motivated motivation future goal ambition",
+        response:
+          "Joshua enjoys solving problems and building systems that eliminate repetitive work. He finds satisfaction in helping businesses become more efficient, scalable, and effective through automation and AI. He aims to become a recognized leader in AI automation and intelligent business systems, helping organizations leverage technology for greater efficiency and growth.",
+      },
+      {
+        topic: "complex achievement biggest accomplishment",
+        response:
+          "One of Joshua's biggest achievements is bridging the gap between business operations and technical implementation. His most complex work includes multi-agent AI systems with 8+ interconnected modules, automated proposal generation suites with 6 integrated workflows, voice call analysis systems, and community management platforms handling 20,000+ users. He consistently transforms manual processes into scalable automated systems.",
+      },
+      {
+        topic: "wordpress website web development",
+        response:
+          "Joshua has experience working on automation and chatbot projects connected to websites. While his primary focus is automation and AI systems rather than web development, he can build solutions that integrate with your existing web platforms through APIs and webhooks.",
+      },
+      {
+        topic: "review evaluate audit existing process",
+        response:
+          "Understanding existing workflows is often the first step before recommending automation. Joshua can review your current processes, identify bottlenecks and automation opportunities, and provide recommendations before implementation. Process analysis and workflow discovery are common starting points for his projects.",
+      },
+      {
+        topic: "internal tool build custom",
+        response:
+          "Yes, Joshua focuses on understanding the business process first and then designing custom solutions that fit the problem. Automation projects often involve creating internal tools that help teams operate more efficiently — from AI assistants and dashboards to workflow automation systems and knowledge management platforms.",
       },
     ],
   },
