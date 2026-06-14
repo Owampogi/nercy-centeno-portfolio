@@ -41,7 +41,7 @@ export function AIChatWidget() {
         return entry.response;
       }
     }
-    return "Great question! I'd recommend reaching out to Joshua directly via the contact form or book a discovery call to discuss your specific needs.";
+    return "Great question! I would recommend reaching out to Joshua directly via the contact form or book a discovery call to discuss your specific needs.";
   };
 
   const handleSend = (text?: string) => {
@@ -90,7 +90,7 @@ export function AIChatWidget() {
               </div>
               <div className="flex-1">
                 <p className="text-sm font-semibold text-foreground">AI Assistant</p>
-                <p className="text-[10px] text-muted">Ask about Joshua's experience</p>
+                <p className="text-[10px] text-muted">{"Ask about Joshua's experience"}</p>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
