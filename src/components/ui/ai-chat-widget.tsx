@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Send, Bot, User, Sparkles, X, MessageCircle } from "lucide-react";
-import { siteData } from "@/lib/data";
+import { findIntent, CONFIDENCE_THRESHOLD } from "@/lib/chatbot-intents";
 
 interface Message {
   role: "user" | "assistant";
@@ -17,123 +17,8 @@ const suggestedQuestions = [
   "What is his rate?",
 ];
 
-const phraseMap: [string, string][] = [
-  ["expensive to hire", "rate pricing cost budget affordable charge fee"],
-  ["expensive to work with", "rate pricing cost budget affordable charge fee"],
-  ["how much does he charge", "rate pricing cost budget affordable charge fee"],
-  ["how much does he cost", "rate pricing cost budget affordable charge fee"],
-  ["how much to hire", "rate pricing cost budget affordable charge fee"],
-  ["what is his rate", "rate pricing cost budget affordable charge fee"],
-  ["not expensive", "rate pricing cost budget affordable charge fee"],
-  ["how much", "rate pricing cost budget affordable charge fee"],
-  ["worth the", "rate pricing cost budget affordable charge fee"],
-  ["don't know where to start", "non-technical team explain simple beginner start"],
-  ["where do i start", "non-technical team explain simple beginner start"],
-  ["where to start", "non-technical team explain simple beginner start"],
-  ["keeps breaking", "broken fix troubleshoot existing workflow"],
-  ["existing workflow", "broken fix troubleshoot existing workflow"],
-  ["what makes him different", "why hire different unique value worth"],
-  ["different from other", "why hire different unique value worth"],
-  ["good enough", "why hire different unique value worth"],
-  ["worth hiring", "why hire different unique value worth"],
-  ["worth it", "why hire different unique value worth"],
-  ["hire him", "why hire different unique value worth"],
-  ["hire joshua", "why hire different unique value worth"],
-  ["what does he do", "what does joshua do work services"],
-  ["what can he do", "what does joshua do work services"],
-  ["what does he offer", "what does joshua do work services"],
-  ["how does he work", "how work process step plan"],
-  ["how does it work", "how work process step plan"],
-  ["work process", "how work process step plan"],
-  ["most complex", "complex achievement biggest accomplishment"],
-  ["review our process", "review evaluate audit existing process"],
-  ["existing process", "review evaluate audit existing process"],
-  ["internal tool", "internal tool build custom"],
-  ["custom tool", "internal tool build custom"],
-  ["build tool", "internal tool build custom"],
-  ["knowledge base", "knowledge base documentation faq organize"],
-  ["generate content", "content automation generate pipeline"],
-  ["time zone", "timezone remote async collaborate"],
-  ["multiple project", "multiple projects simultaneously at once"],
-  ["chat bot", "chatbot build website ai assistant"],
-  ["website bot", "chatbot build website ai assistant"],
-  ["after project", "training support after delivery maintenance break"],
-  ["support after", "training support after delivery maintenance break"],
-  ["non-technical", "non-technical team explain simple beginner start"],
-  ["not technical", "non-technical team explain simple beginner start"],
-  ["work he done", "projects portfolio work examples"],
-  ["how fast can", "urgent fast quick turnaround time"],
-  ["when can he", "available schedule full-time freelance start"],
-  ["what tool", "n8n make zapier tools automation platform"],
-  ["tool he use", "n8n make zapier tools automation platform"],
-  ["cheap", "rate pricing cost budget affordable charge fee"],
-  ["affordable", "rate pricing cost budget affordable charge fee"],
-  ["expensive", "rate pricing cost budget affordable charge fee"],
-  ["budget", "rate pricing cost budget affordable charge fee"],
-  ["charge", "rate pricing cost budget affordable charge fee"],
-  ["pricing", "rate pricing cost budget affordable charge fee"],
-  ["fee", "rate pricing cost budget affordable charge fee"],
-  ["price", "rate pricing cost budget affordable charge fee"],
-  ["cost", "rate pricing cost budget affordable charge fee"],
-  ["rate", "rate pricing cost budget affordable charge fee"],
-  ["impressive", "why hire different unique value worth"],
-  ["qualified", "why hire different unique value worth"],
-  ["hire", "why hire different unique value worth"],
-  ["urgent", "urgent fast quick turnaround time"],
-  ["quickly", "urgent fast quick turnaround time"],
-  ["asap", "urgent fast quick turnaround time"],
-  ["available", "available schedule full-time freelance start"],
-  ["testimonial", "testimonial reference recommendation review feedback"],
-  ["reference", "testimonial reference recommendation review feedback"],
-  ["feedback", "testimonial reference recommendation review feedback"],
-  ["services", "what does joshua do work services"],
-  ["offer", "what does joshua do work services"],
-  ["technology", "n8n make zapier tools automation platform"],
-  ["stack", "n8n make zapier tools automation platform"],
-  ["n8n", "n8n make zapier tools automation platform"],
-  ["make.com", "n8n make zapier tools automation platform"],
-  ["zapier", "n8n make zapier tools automation platform"],
-  ["process", "how work process step plan"],
-  ["chatbot", "chatbot build website ai assistant"],
-  ["crm", "crm integrate api connect existing"],
-  ["integrate", "crm integrate api connect existing"],
-  ["project", "projects portfolio work examples"],
-  ["portfolio", "projects portfolio work examples"],
-  ["industry", "industry healthcare gaming startup web3"],
-  ["startup", "industry healthcare gaming startup web3"],
-  ["gaming", "industry healthcare gaming startup web3"],
-  ["healthcare", "industry healthcare gaming startup web3"],
-  ["web3", "industry healthcare gaming startup web3"],
-  ["career", "career background experience history timeline"],
-  ["background", "career background experience history timeline"],
-  ["history", "career background experience history timeline"],
-  ["communicate", "communication progress update transparent"],
-  ["transparent", "communication progress update transparent"],
-  ["training", "training support after delivery maintenance break"],
-  ["maintenance", "training support after delivery maintenance break"],
-  ["explain", "non-technical team explain simple beginner start"],
-  ["broken", "broken fix troubleshoot existing workflow"],
-  ["fix", "broken fix troubleshoot existing workflow"],
-  ["troubleshoot", "broken fix troubleshoot existing workflow"],
-  ["timezone", "timezone remote async collaborate"],
-  ["remote", "timezone remote async collaborate"],
-  ["faq", "knowledge base documentation faq organize"],
-  ["documentation", "knowledge base documentation faq organize"],
-  ["content", "content automation generate pipeline"],
-  ["motivat", "motivated motivation future goal ambition"],
-  ["goal", "motivated motivation future goal ambition"],
-  ["future", "motivated motivation future goal ambition"],
-  ["achievement", "complex achievement biggest accomplishment"],
-  ["accomplishment", "complex achievement biggest accomplishment"],
-  ["biggest", "complex achievement biggest accomplishment"],
-  ["wordpress", "wordpress website web development"],
-  ["evaluate", "review evaluate audit existing process"],
-  ["audit", "review evaluate audit existing process"],
-  ["team", "multiple projects simultaneously at once"],
-  ["solo", "available schedule full-time freelance start"],
-  ["about", "who is joshua about bio introduction"],
-  ["who is", "who is joshua about bio introduction"],
-];
+const fallbackResponse =
+  "I couldn't find a direct answer to that question. Please contact Joshua directly via the contact form on this website, email him at nercy.centeno.freelancer@gmail.com, or book a free 30-minute discovery call through the Calendly link.";
 
 export function AIChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
@@ -151,35 +36,13 @@ export function AIChatWidget() {
   }, [messages]);
 
   const findResponse = (query: string): string => {
-    const lowerQuery = query.toLowerCase();
-    const kb = siteData.aiAssistant.knowledgeBase;
+    const { intent, score } = findIntent(query);
 
-    for (const [phrase, topic] of phraseMap) {
-      if (lowerQuery.includes(phrase)) {
-        const match = kb.find((e) => e.topic === topic);
-        if (match) return match.response;
-      }
+    if (intent && score >= CONFIDENCE_THRESHOLD) {
+      return intent.answer;
     }
 
-    let bestMatch: { entry: (typeof kb)[0]; score: number } | null = null;
-    for (const entry of kb) {
-      const keywords = entry.topic.toLowerCase().split(" ");
-      let score = 0;
-      for (const kw of keywords) {
-        if (kw.length > 3 && lowerQuery.includes(kw)) {
-          score += kw.length;
-        }
-      }
-      if (score > 0 && (!bestMatch || score > bestMatch.score)) {
-        bestMatch = { entry, score };
-      }
-    }
-
-    if (bestMatch && bestMatch.score >= 5) {
-      return bestMatch.entry.response;
-    }
-
-    return "That's a great question! For the most detailed answer, I'd recommend reaching out to Joshua directly via the contact form on this website or booking a free 30-minute discovery call through his Calendly link. You can also email him at nercy.centeno.freelancer@gmail.com.";
+    return fallbackResponse;
   };
 
   const handleSend = (text?: string) => {
