@@ -26,6 +26,7 @@ export function AIChatWidget() {
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const lastIntent = useRef<string | null>(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -35,11 +36,56 @@ export function AIChatWidget() {
     scrollToBottom();
   }, [messages]);
 
+  // Context-aware responses for follow-up questions
+  const contextResponses: Record<string, (lastIntent: string) => string | null> = {
+    "yes or no": (lastIntent) => {
+      if (lastIntent === "hiring") return "Yes — based on his verified testimonials, proven project results, and 5+ years of experience across multiple industries, Joshua is absolutely worth hiring. His rate starts at $15 USD/hour and he offers a free discovery call to discuss your needs.";
+      if (lastIntent === "pricing") return "Yes — his rates are competitive and negotiable. The best way to get an exact quote is to book a free discovery call through the Calendly link on this website.";
+      return null;
+    },
+    "yes": (lastIntent) => {
+      if (lastIntent === "hiring") return "Great choice! The best next step is to book a free 30-minute discovery call through the Calendly link on this website, or email Joshua directly at nercy.centeno.freelancer@gmail.com to discuss your project.";
+      return null;
+    },
+    "no": (lastIntent) => {
+      if (lastIntent === "hiring") return "No problem at all. If your needs change in the future, feel free to reach out. You can always connect with Joshua on LinkedIn at linkedin.com/in/nercy-joshua-centeno.";
+      return null;
+    },
+    "thank": () => "You're welcome! If you have more questions, feel free to ask. You can also book a discovery call or reach out to Joshua directly at nercy.centeno.freelancer@gmail.com.",
+    "thanks": () => "You're welcome! If you have more questions, feel free to ask. You can also book a discovery call or reach out to Joshua directly at nercy.centeno.freelancer@gmail.com.",
+  };
+
   const findResponse = (query: string): string => {
+    const normalizedQuery = query.toLowerCase().replace(/[^\w\s]/g, " ").replace(/\s+/g, " ").trim();
     const { intent, score } = findIntent(query);
 
+    // Check for context-aware follow-up responses
+    for (const [pattern, handler] of Object.entries(contextResponses)) {
+      if (normalizedQuery.includes(pattern) && lastIntent.current) {
+        const response = handler(lastIntent.current);
+        if (response) return response;
+      }
+    }
+
     if (intent && score >= CONFIDENCE_THRESHOLD) {
+      lastIntent.current = intent.intent;
       return intent.answer;
+    }
+
+    // Check if the query is a very short follow-up (2 words or less)
+    // that might be a yes/no or confirmation
+    const wordCount = normalizedQuery.split(" ").length;
+    if (wordCount <= 2 && lastIntent.current) {
+      const last = lastIntent.current;
+      if (last === "hiring") {
+        return "Based on his verified testimonials, 5+ years of experience, and proven results across multiple industries, Joshua is a strong hire. His rate is $15 USD/hour (negotiable). Want to move forward? Book a discovery call through the Calendly link or email nercy.centeno.freelancer@gmail.com.";
+      }
+      if (last === "pricing") {
+        return "Joshua's rate is $15 USD/hour, negotiable based on project scope. He also offers fixed-price arrangements for well-defined projects. Ready to discuss? Book a discovery call through the Calendly link.";
+      }
+      if (last === "availability") {
+        return "Joshua is currently available. The fastest way to get started is to book a free 30-minute discovery call through the Calendly link on this website.";
+      }
     }
 
     return fallbackResponse;

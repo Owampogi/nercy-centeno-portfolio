@@ -101,7 +101,8 @@ export const intents: ChatIntent[] = [
     keywords: [
       "crm", "salesforce", "hubspot", "customer relationship",
       "lead management", "lead", "leads", "pipeline",
-      "customer database", "client management",
+      "customer database", "client management", "ghl",
+      "gohighlevel", "go high level", "highlevel",
     ],
     answer:
       "If your CRM supports APIs, webhooks, or integrations, Joshua can typically connect it to an automation workflow. He has experience connecting automation workflows with third-party systems through APIs, webhooks, databases, spreadsheets, and cloud platforms. His project Daloy PH is an example of a CRM-integrated automation platform that centralizes customer conversations and improves lead management for SMEs.",
