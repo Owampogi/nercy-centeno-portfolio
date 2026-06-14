@@ -1,0 +1,202 @@
+# Deployment Guide — Nercy Centeno Portfolio
+
+## Quick Start
+
+### Prerequisites
+- Node.js 18.17+ (recommended: 20+)
+- npm 9+
+
+### Local Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Open http://localhost:3000
+```
+
+### Production Build
+
+```bash
+# Build for production
+npm run build
+
+# Start production server
+npm start
+```
+
+---
+
+## Deployment Options
+
+### 1. Vercel (Recommended)
+
+Vercel is the recommended platform for Next.js deployments.
+
+1. Push your code to a GitHub repository
+2. Go to [vercel.com](https://vercel.com) and sign in with GitHub
+3. Click "New Project" and import your repository
+4. Vercel auto-detects Next.js — click "Deploy"
+5. Your site will be live at `your-project.vercel.app`
+
+**Custom Domain:**
+1. Go to Project Settings → Domains
+2. Add your custom domain (e.g., `nercycenteno.com`)
+3. Update DNS records as instructed by Vercel
+
+**Environment Variables (if needed):**
+```
+NEXT_PUBLIC_SITE_URL=https://nercycenteno.com
+```
+
+### 2. Netlify
+
+1. Push code to GitHub
+2. Go to [netlify.com](https://netlify.com) and import the repository
+3. Build command: `npm run build`
+4. Publish directory: `.next`
+5. Install the Next.js runtime: `@netlify/plugin-nextjs`
+
+### 3. Docker
+
+```dockerfile
+FROM node:20-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
+FROM node:20-alpine AS runner
+WORKDIR /app
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./
+EXPOSE 3000
+CMD ["npm", "start"]
+```
+
+```bash
+docker build -t nercy-portfolio .
+docker run -p 3000:3000 nercy-portfolio
+```
+
+---
+
+## Post-Deployment Checklist
+
+### SEO
+- [ ] Submit sitemap to Google Search Console (`/sitemap.xml`)
+- [ ] Verify structured data with Google Rich Results Test
+- [ ] Test Open Graph with Facebook Sharing Debugger
+- [ ] Test Twitter Cards with Twitter Card Validator
+- [ ] Submit to Bing Webmaster Tools
+
+### Performance
+- [ ] Run Lighthouse audit (target: 95+ all categories)
+- [ ] Test mobile responsiveness on multiple devices
+- [ ] Verify all animations are smooth (60fps)
+- [ ] Check Core Web Vitals in Google PageSpeed Insights
+
+### Content
+- [ ] Replace placeholder testimonials with verified references
+- [ ] Add real project screenshots to case studies
+- [ ] Upload a professional OG image (`/public/og-image.png`)
+- [ ] Add certification details to resume section
+- [ ] Set up Calendly integration for discovery calls
+- [ ] Connect contact form to email service (e.g., Formspree, Resend)
+
+### Analytics
+- [ ] Set up Google Analytics 4
+- [ ] Set up Vercel Analytics (if using Vercel)
+- [ ] Configure lead tracking events
+
+### Security
+- [ ] Verify HTTPS is enabled
+- [ ] Check security headers are applied
+- [ ] Test CSP (Content Security Policy) if needed
+
+---
+
+## Customization Guide
+
+### Updating Content
+All content is centralized in `src/lib/data.ts`. Update this file to change:
+- Personal information
+- Hero section text
+- About section story
+- Skills and expertise
+- Project case studies
+- Timeline entries
+- Testimonials
+- AI assistant knowledge base
+
+### Adding Blog Posts
+Create new markdown files in `src/content/blog/` (blog engine architecture is ready for extension).
+
+### Replacing Screenshots
+Add project screenshots to `public/images/projects/` and update the projects section components.
+
+### Calendly Integration
+Replace the LinkedIn scheduling link in the contact section with your Calendly embed URL.
+
+---
+
+## Architecture
+
+```
+src/
+├── app/
+│   ├── globals.css          # Global styles & CSS variables
+│   ├── layout.tsx           # Root layout with SEO, theme, navigation
+│   ├── page.tsx             # Main page composing all sections
+│   ├── robots.ts            # SEO robots.txt
+│   └── sitemap.ts           # SEO sitemap
+├── components/
+│   ├── layout/
+│   │   ├── navbar.tsx       # Navigation bar
+│   │   └── footer.tsx       # Footer
+│   ├── providers/
+│   │   └── theme-provider.tsx  # Dark/Light theme context
+│   ├── sections/
+│   │   ├── hero.tsx         # Hero section
+│   │   ├── about.tsx        # About section
+│   │   ├── expertise.tsx    # Core expertise grid
+│   │   ├── projects.tsx     # Case studies with expand/collapse
+│   │   ├── experience.tsx   # Career timeline
+│   │   ├── testimonials.tsx # Client testimonials
+│   │   ├── ai-assistant.tsx # Embedded AI chat assistant
+│   │   ├── blog.tsx         # Blog preview cards
+│   │   ├── resume.tsx       # Resume with download
+│   │   └── contact.tsx      # Contact form & info
+│   └── ui/
+│       ├── animated-background.tsx  # Canvas particle animation
+│       ├── nc-logo.tsx      # SVG logo component
+│       └── section-wrapper.tsx  # Reusable section container
+└── lib/
+    ├── data.ts              # All site content & structured data
+    └── utils.ts             # Tailwind merge utility
+```
+
+---
+
+## Tech Stack
+
+| Technology | Purpose |
+|-----------|---------|
+| Next.js 15 | React framework with App Router |
+| TypeScript | Type safety |
+| TailwindCSS | Utility-first CSS |
+| Framer Motion | Smooth animations |
+| Lucide Icons | Icon system |
+| clsx + tailwind-merge | Conditional class merging |
+
+---
+
+## License
+
+This portfolio is built for Nercy Joshua B. Centeno. All content and design are proprietary.
