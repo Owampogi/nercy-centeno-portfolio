@@ -6,7 +6,6 @@ import { ProcessSection } from "@/components/sections/process";
 import { ProjectsSection } from "@/components/sections/projects";
 import { ExperienceSection } from "@/components/sections/experience";
 import { TestimonialsSection } from "@/components/sections/testimonials";
-import { AIAssistantSection } from "@/components/sections/ai-assistant";
 import { BlogSection } from "@/components/sections/blog";
 import { ResumeSection } from "@/components/sections/resume";
 import { ContactSection } from "@/components/sections/contact";
@@ -31,8 +30,6 @@ export default function Home() {
       <div className="section-divider" />
       <TestimonialsSection />
       <SuitsQuote index={1} />
-      <div className="section-divider" />
-      <AIAssistantSection />
       <div className="section-divider" />
       <BlogSection />
       <div className="section-divider" />

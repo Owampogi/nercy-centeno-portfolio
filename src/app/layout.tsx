@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { AnimatedBackground } from "@/components/ui/animated-background";
 import { ScrollToTop } from "@/components/ui/scroll-to-top";
+import { AIChatWidget } from "@/components/ui/ai-chat-widget";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nercycenteno.com"),
@@ -137,6 +138,7 @@ export default function RootLayout({
           <Navbar />
           <main className="relative z-10">{children}</main>
           <Footer />
+          <AIChatWidget />
         </ThemeProvider>
       </body>
     </html>
