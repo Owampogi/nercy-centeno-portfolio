@@ -35,13 +35,77 @@ export function AIChatWidget() {
   const findResponse = (query: string): string => {
     const lowerQuery = query.toLowerCase();
     const kb = siteData.aiAssistant.knowledgeBase;
+
+    // Score each entry based on keyword matches
+    let bestMatch: { entry: typeof kb[0]; score: number } | null = null;
+
     for (const entry of kb) {
       const keywords = entry.topic.toLowerCase().split(" ");
-      if (keywords.some((kw) => lowerQuery.includes(kw))) {
-        return entry.response;
+      let score = 0;
+      for (const kw of keywords) {
+        if (kw.length > 2 && lowerQuery.includes(kw)) {
+          score += kw.length; // longer keyword matches score higher
+        }
+      }
+      if (score > 0 && (!bestMatch || score > bestMatch.score)) {
+        bestMatch = { entry, score };
       }
     }
-    return "Great question! I would recommend reaching out to Joshua directly via the contact form or book a discovery call to discuss your specific needs.";
+
+    // Special phrase matching for common questions
+    const phraseMap: Record<string, string> = {
+      "good enough": "why hire joshua",
+      "hire him": "why hire joshua",
+      "hire": "why hire joshua",
+      "qualified": "why hire joshua",
+      "quality": "why hire joshua",
+      "how much": "rate pricing cost hourly",
+      "charge": "rate pricing cost hourly",
+      "price": "rate pricing cost hourly",
+      "cost": "rate pricing cost hourly",
+      "budget": "rate pricing cost hourly",
+      "rate": "rate pricing cost hourly",
+      "fee": "rate pricing cost hourly",
+      "affordable": "rate pricing cost hourly",
+      "cheap": "rate pricing cost hourly",
+      "expensive": "rate pricing cost hourly",
+      "available": "availability schedule full-time freelance",
+      "when can": "availability schedule full-time freelance",
+      "start": "availability schedule full-time freelance",
+      "testimonial": "testimonials references recommendations",
+      "reference": "testimonials references recommendations",
+      "recommend": "testimonials references recommendations",
+      "review": "testimonials references recommendations",
+      "feedback": "testimonials references recommendations",
+      "what does he do": "services offered freelance",
+      "what can he do": "services offered freelance",
+      "what does he offer": "services offered freelance",
+      "services": "services offered freelance",
+      "offer": "services offered freelance",
+      "what tool": "tools technologies stack",
+      "tool he use": "tools technologies stack",
+      "technology": "tools technologies stack",
+      "stack": "tools technologies stack",
+      "n8n": "n8n expertise",
+      "work process": "how work process",
+      "how does he work": "how work process",
+      "how does it work": "how work process",
+      "process": "how work process",
+      "step": "how work process",
+    };
+
+    for (const [phrase, topic] of Object.entries(phraseMap)) {
+      if (lowerQuery.includes(phrase)) {
+        const match = kb.find((e) => e.topic === topic);
+        if (match) return match.response;
+      }
+    }
+
+    if (bestMatch && bestMatch.score >= 3) {
+      return bestMatch.entry.response;
+    }
+
+    return "That's a great question! For the most detailed answer, I'd recommend reaching out to Joshua directly via the contact form on this website or booking a free 30-minute discovery call through his Calendly link. You can also email him at nercy.centeno.freelancer@gmail.com.";
   };
 
   const handleSend = (text?: string) => {
